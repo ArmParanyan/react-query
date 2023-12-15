@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
-import Loading from "./Loading";
-import Error from "./Error";
-import PostsList from "./PostsList";
-import {Pagination} from "./Pagination";
-import Search from "./Search";
-import {usePosts} from "../hooks/usePosts";
-import {CreatePostButton} from "./CreatePostButton";
+import Loading from "../Loading";
+import Error from "../Error";
+import PostsList from "../PostsList";
+import {Pagination} from "../Pagination";
+import Search from "../Search";
+import {usePosts} from "../../hooks/usePosts";
+import {CreatePostButton} from "../CreatePostButton";
 
+import "./Posts.scss"
 
 const Posts: React.FC = () => {
     const [page, setPage] = useState(1);
@@ -26,13 +27,8 @@ const Posts: React.FC = () => {
 
     return (
         <div
-            style={{
-               display: "flex",
-                flexDirection: "column",
-                width: "400px",
-                margin: "0 auto",
-                gap: "20px",
-        }}
+            className="posts-wrapper"
+
         >
             <h1>Posts</h1>
             <Search/>

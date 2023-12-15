@@ -5,7 +5,6 @@ import {useEditPost} from "../hooks/useEditPost";
 import Loading from "./Loading";
 import {useQueryClient} from "react-query";
 import {useDeletePost} from "../hooks/useDeletePost";
-import {throws} from "node:assert";
 
 const PostDetails: FC = () => {
     const {id} = useParams<{ id: string }>();

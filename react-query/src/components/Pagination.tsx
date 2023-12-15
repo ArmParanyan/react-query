@@ -1,5 +1,4 @@
 import React, {FC, MouseEventHandler} from "react";
-import posts from "./Posts";
 
 interface PaginationProps {
     handlePrevPage: MouseEventHandler<HTMLButtonElement>;

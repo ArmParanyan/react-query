@@ -18,7 +18,6 @@ const YourComponent: React.FC = () => {
         }
 
         return () => {
-            // Clear the timeout if the component unmounts or if the dependency array changes
             clearTimeout(timeoutId);
         };
     }, [delayedRefresh]);
@@ -26,7 +25,7 @@ const YourComponent: React.FC = () => {
     return (
         <div>
             <input type="search" onChange={handleChange}/>
-            {/* Your other component content */}
+
         </div>
     );
 };
