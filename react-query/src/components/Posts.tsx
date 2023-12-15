@@ -1,52 +1,57 @@
-import {useQuery} from "react-query";
-import {displayValue} from "react-query/types/devtools/utils";
+import React, {useState} from 'react';
+import Loading from "./Loading";
+import Error from "./Error";
+import PostsList from "./PostsList";
+import {Pagination} from "./Pagination";
+import Search from "./Search";
+import {usePosts} from "../hooks/usePosts";
+import {CreatePostButton} from "./CreatePostButton";
 
 
-const fetchPosts = async () => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
-    return await res.json();
-}
+const Posts: React.FC = () => {
+    const [page, setPage] = useState(1);
 
-const Posts = () => {
-    const {data, isLoading, isError} = useQuery(
-        ["posts"],
-        fetchPosts,
-        {
-            staleTime: 0,
-            cacheTime: 20,
-        })
+    const {data: posts, isLoading, isError} = usePosts(page);
 
-    if (isLoading) {
-        return <div>Loading...</div>
-    }
 
-    if (isError) {
-        return <div>OOPS something went wrong</div>
-    }
+    const handleNextPage = () => {
+        setPage((prevPage) => prevPage + 1);
+    };
+
+
+    const handlePrevPage = () => {
+        setPage((prevPage) => Math.max(prevPage - 1, 1));
+    };
+
 
     return (
-        <div>
-            <ul>
-                {
-                    data.map((item: any) =>
-                        (
-                            <li
-                                key={item.id}
-                                style={{
-                                    listStyle: "none",
-                                }}
-                            >
-                                {item.title}
+        <div
+            style={{
+               display: "flex",
+                flexDirection: "column",
+                width: "400px",
+                margin: "0 auto",
+                gap: "20px",
+        }}
+        >
+            <h1>Posts</h1>
+            <Search/>
 
-                                <button>Edit</button>
-                                <button>Remove</button>
-                            </li>
-                        )
-                    )
-                }
-            </ul>
+            <CreatePostButton />
+
+            {isLoading ? (
+                <Loading/>
+            ) : (isError ? (
+                <Error/>
+            ) : (
+                <PostsList posts={posts}/>
+            ))}
+
+
+            <Pagination handlePrevPage={handlePrevPage} handleNextPage={handleNextPage} page={page}/>
+
         </div>
     );
 };
 
-export default Posts
+export default Posts;
