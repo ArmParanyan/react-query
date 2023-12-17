@@ -12,7 +12,7 @@ const Home = () => {
                 tempore velit, vitae?
             </p>
             <button onClick={() => navigate("/posts")}>Click to open posts</button>
-
+            <Outlet />
         </div>
     );
 };

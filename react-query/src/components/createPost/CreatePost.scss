@@ -5,3 +5,23 @@
   margin: 0 auto;
   gap: 20px;
 }
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.field-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  margin: 0 auto;
+}
+
+.create-button {
+    width: 120px;
+  margin: 0 auto;
+}

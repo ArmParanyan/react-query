@@ -5,9 +5,10 @@ import PostsList from "../PostsList";
 import {Pagination} from "../Pagination";
 import Search from "../Search";
 import {usePosts} from "../../hooks/usePosts";
-import {CreatePostButton} from "../CreatePostButton";
+import {CreatePostButton} from "../createPostButton/CreatePostButton";
 
 import "./Posts.scss"
+import {Outlet} from "react-router-dom";
 
 const Posts: React.FC = () => {
     const [page, setPage] = useState(1);
@@ -46,6 +47,7 @@ const Posts: React.FC = () => {
 
             <Pagination handlePrevPage={handlePrevPage} handleNextPage={handleNextPage} page={page}/>
 
+            {/*<Outlet />*/}
         </div>
     );
 };

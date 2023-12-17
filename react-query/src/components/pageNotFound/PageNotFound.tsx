@@ -14,7 +14,6 @@ const PageNotFound = () => {
                 <li>Return to the <a href="/">homepage</a>.</li>
                 <li>Contact the website administrator for assistance.</li>
             </ul>
-            <img src="https://example.com/404-image.jpg" alt="Sad Robot" width="300" />
         </div>
 );
 };

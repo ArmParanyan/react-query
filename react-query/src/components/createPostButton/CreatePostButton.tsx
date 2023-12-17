@@ -5,17 +5,8 @@ export const CreatePostButton = () => {
     const navigate = useNavigate();
 
     return (
-        <div style={{
-            display: "flex",
-            justifyContent: "center",
-        }}>
-            <button style={{
-                display: "flex",
-                width: "150px",
-                justifyContent: "center"
-
-            }}
-
+        <div className="create-post-button-wrapper">
+            <button className="create-post-button"
                     onClick={() => navigate("/create")}
             >
                 Create

@@ -16,28 +16,29 @@ export const router = createBrowserRouter([
 
         path: "/posts",
         element: <Posts/>,
+
     },
-    // {
-    //     path: "/posts/*",
-    //     element: <PageNotFound />
-    // },
     {
         path: "posts/:id",
-        element: <PostDetails/>,
+        element:
+            <PostDetails/>,
     },
 
-    // {
-    //     path: "/posts/:id/*",
-    //     element: <PageNotFound />
-    // },
     {
-        path: "/create",
-        element: <CreatePost/>
+        path: "/posts/:id/*",
+        element:
+            <PageNotFound/>
     },
     {
-        path: "*",
-        element: <PageNotFound />
-    }
+        path: "/create",
+        element:
+            <CreatePost/>
+    },
+    // {
+    //     path: "*",
+    //     element:
+    //         <PageNotFound/>
+    // }
 
 
 ])
